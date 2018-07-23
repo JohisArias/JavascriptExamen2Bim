@@ -1,0 +1,65 @@
+<div class="row">
+
+  <div class="col-sm-12">
+    <app-nav-bar></app-nav-bar>
+  </div>
+
+  <div class="col-sm-12" align="center">
+    <br>
+    <p class="h3">Datos de Autor:</p>
+  </div>
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header">
+        <p style="color:#3d5afe"> {{autor[0].nombre}}
+        {{autor[0].apellidos}}
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-5">
+            <img class="img-fluid" [src]=autor[0].urlImagen alt="Autor no disponible">
+          </div>
+          <div class="col-sm-7">
+            <p class="card-text">Nombre:  {{autor[0].nombre}} </p>
+            <p class="card-text">Apellido: {{autor[0].apellidos}}</p>
+            <p class="card-text">Fecha de Nacimiento: {{autor[0].fechaNacimiento}}</p>
+            <p class="card-text">Número de Libros:  {{autor[0].numeroLibros}}</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-3"></div>
+  <div class="col-sm-12" ><br></div>
+
+  <div class="col-sm-12">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h3>Datos de Libros:</h3>
+        <hr class="my-4">
+        <div class="row">
+          <div class="col-sm-4" *ngFor="let libro of libro">
+            <div class="card">
+              <div align="center"><img class="card-img-top img-fluid" [src]=libro.urlImagen alt="Imagen Jugador"></div>
+              <div class="card-body">
+                <h5 class="card-title">{{libro.nombre}} </h5>
+                <p class="card-text">ISBN: {{libro.isbn}}</p>
+                <p class="card-text">Autor ID: {{libro.autorIdFk.id}}</p>
+                <p class="card-text">Número de Páginas: {{libro.numeroPaginas}}
+                <p class="card-text">Fecha de Publicación: {{libro.fechaPublicacion}}</p>
+                <a href="#" [routerLink]="['/autor',libro.autorIdFk.id,'libro',libro.id]" class="btn btn-primary"><i class="icon ion-md-today"></i> Detalles</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,40 @@
+<section class="mainbar">
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      Autor List
+    </div>
+    <div class="panel-body">
+
+      <div class="pull-right">
+        <a type="button" class="btn btn-success" href="/autor/create">
+          <i class="glyphicon glyphicon-open"></i> New Autor
+        </a>
+      </div>
+
+      <table ng-table="vm.tableParams" show-filter="true" class="table table-condensed table-striped">
+          <tr ng-repeat="autor in $data">
+              <td data-title="'Nombre'" sortable="'name'" filter="{ 'name': 'text' }">{{autor.name}}</td>
+              <td data-title="'Apellido'" sortable="'address'" filter="{'address': 'text'}">{{autor.address}}</td>
+              <td data-title="'Fecha de Nacimiento'" sortable="'address'" filter="{'date': 'text'}">{{autor.date}}</td>
+              <td data-title="'Número de Libros'" sortable="'address'" filter="{'numberBooks': 'text'}">{{autor.numberBooks}}</td>
+              <td>
+                 <div class="table-actions">
+                      <a class="btn btn-default" title="Ver" href="/autor/{{autor.id}}">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                      </a>
+                      <a class="btn btn-default" title="Editar" href="/autor/{{autor.id}}/edit">
+                        <span class="glyphicon glyphicon-edit"></span>
+                      </a>
+                      <a class="btn btn-danger" title="Eliminar" ng-really-message="Desea eliminar autor seleccionado?" ng-really-click="vm.remove(autor)" item="autor">
+                        <span class="glyphicon glyphicon-remove-circle"></span>
+                      </a>
+                  </div>
+              </td>
+          </tr>
+      </table>
+
+    </div>
+  </div>
+
+</section>

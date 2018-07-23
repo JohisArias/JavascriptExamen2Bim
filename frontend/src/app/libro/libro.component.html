@@ -1,0 +1,60 @@
+<div class="row">
+
+  <div class="col-sm-12">
+    <app-nav-bar></app-nav-bar>
+  </div>
+
+  <div class=" container col-sm-12" *ngIf="estado==true">
+    <div class="row">
+      <div class="col-sm-12"><br></div>
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+        <div class="card bg-light" >
+          <div class="card-header">Este ibro no se encuentra disponible</div>
+          <div class="card-body">
+            <h5 class="card-title">El libro ya está agregado al carrito.</h5>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2"></div>
+    </div>
+  </div>
+  <div class=" container col-sm-12" *ngIf="estado==false">
+    <div class="row">
+  <div class="col-sm-12" align="center">
+    <br>
+    <p class="h3">Detalles de Libro:</p>
+  </div>
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header">
+        Autor perteneciente: {{libro[0].autorIdFk.nombre}}
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <img class="img-fluid" [src]=libro[0].urlImagen alt="No disponible">
+          </div>
+          <div class="col-sm-7">
+            <h5 class="card-title">Nombre: {{libro[0].nombre}} </h5>
+            <p class="card-text">ISBN: {{libro[0].isbn}}}}</p>
+            <p class="card-text">Número de Páginas: {{libro[0].numeroPaginas}}</p>
+            <p class="card-text">Fecha de Publicación: {{libro[0].fechaPublicacion}}</p>
+            <p class="card-text">ID de Autor: {{libro[0].autorIdFk.id()}}</p>
+            <p class="card-text">Precio: {{libro[0].valor | currency}}</p>
+            <button [routerLink]="['/home']" (click)="comprarLibro()" class="btn btn-primary">
+              <i class="icon ion-md-cart"></i> Añadir al Carrito</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3"></div>
+  </div>
+</div>
+</div>
+
+
+
